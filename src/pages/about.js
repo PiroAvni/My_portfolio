@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
@@ -5,8 +6,15 @@ import React from "react";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/developer-pic-2.jpg";
 import { motion } from "framer-motion";
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 
 const about = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    setImageLoaded(true);
+  }, []);
   return (
     <>
       <Head>
@@ -110,34 +118,35 @@ const about = () => {
               className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8"
             >
               <motion.div
-                // initial={{
-                //   x: 400,
-                //   opacity: 0,
-                // }}
-                // transition={{
-                //   duration: 2.5,
-                // }}
-                // viewport={{ once: true }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark "
-              />
-              <motion.image
-                src={profilePic}
-                alt="Avni Piro"
-
-                 initial={{
-                  x: 400,
+                initial={{
+                 
                   opacity: 0,
                 }}
                 transition={{
                   duration: 2.5,
                 }}
                 viewport={{ once: true }}
-                whileInView={{ opacity: 1, x: 0 }}
-                className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out"
+                whileInView={{ opacity: 1 }}
+                className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark "
               />
+             <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: imageLoaded ? 1 : 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out"
+      >
+        <Image
+          src={profilePic}
+          alt="Avni Piro"
+          className="w-full h-auto rounded-2xl"
+          onLoad={() => setImageLoaded(true)}
+        />
+      </motion.div>
             </motion.div>
           </div>
+
+          <Experience/>
+          <Education />
         </Layout>
       </main>
     </>
