@@ -15,8 +15,8 @@ const WorkExperience = () => {
     className='h-screen flex relative overflow-hidden flex-col text-lft md:flex-row max-w-full px-10 justify-evenly mx-auto items-center'>
 
     <div className="my-64">
-    <h2 className="font-bond text-8xl mb-32 w-full text-center ">
-      Education
+    <h2 className="font-bond text-8xl mb-18 w-full text-center ">
+      Experience
     </h2>
     </div>
     </motion.div>
