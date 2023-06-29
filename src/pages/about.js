@@ -6,8 +6,9 @@ import React from "react";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/developer-pic-2.jpg";
 import { motion } from "framer-motion";
-import Experience from "@/components/Experience";
+import WorkExperience from "@/components/WorkExperience";
 import Education from "@/components/Education";
+import Skills from "@/components/Skills";
 
 const about = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -76,50 +77,23 @@ const about = () => {
                 correct and strong internal controls and procedures are in
                 place.
               </p>
-              <p className="my-4 font-medium">
-                My goal is to work my way up as a software developer, to
-                continue to learn new technologies and to improve and develop as
-                a developer. My current goal is to perfect the programming
-                languages I have learnt or learning and to continue to learn the
-                back-end development. I have always had a passion for software
-                development as stated above, the idea of contributing to a
-                fast-moving industry where it will allow me to create, write
-                code and potentially help improve experience or solve a problem
-                be it aimed at company or personal level. I have attended a
-                Firebrand boot camp where I have learnt the fundamentals of
-                software development, understanding application lifecycle
-                management, testing, Data Structure and algorithms and have
-                learnt new fundamentals in three programming languages in C#,
-                Python and SQL. I.T is constantly evolving, developing and
-                adapting, so to keep up to date with technology as it develops
-                it provides an opportunity of improving knowledge, constantly
-                learning and career development. With 14 years’ experience in my
-                previous job, I have worked my way up to a managerial position,
-                always showing the desire to learn and achieved success and
-                attention to detail where I saved the business £10k a year by
-                recommending, moving and implementing to a paperless solution
-                and making sure the business is in line with the current and any
-                new legislation. I identified an opportunity for recommendation
-                to implement improvements within the departments processes and
-                procedures minimizing 60% of entry errors.
-              </p>
+
             </motion.div>
 
             <motion.div
-            //   initial={{
-            //     x: 400,
-            //     opacity: 0,
-            //   }}
-            //   transition={{
-            //     duration: 2.5,
-            //   }}
-            //   whileInView={{ opacity: 1, x: 0 }}
-            //   viewport={{ once: true }}
+              //   initial={{
+              //     x: 400,
+              //     opacity: 0,
+              //   }}
+              //   transition={{
+              //     duration: 2.5,
+              //   }}
+              //   whileInView={{ opacity: 1, x: 0 }}
+              //   viewport={{ once: true }}
               className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8"
             >
               <motion.div
                 initial={{
-                 
                   opacity: 0,
                 }}
                 transition={{
@@ -129,23 +103,23 @@ const about = () => {
                 whileInView={{ opacity: 1 }}
                 className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark "
               />
-             <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: imageLoaded ? 1 : 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out"
-      >
-        <Image
-          src={profilePic}
-          alt="Avni Piro"
-          className="w-full h-auto rounded-2xl"
-          onLoad={() => setImageLoaded(true)}
-        />
-      </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: imageLoaded ? 1 : 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out"
+              >
+                <Image
+                  src={profilePic}
+                  alt="Avni Piro"
+                  className="w-full h-auto rounded-2xl"
+                  onLoad={() => setImageLoaded(true)}
+                />
+              </motion.div>
             </motion.div>
           </div>
-
-          <Experience/>
+          <Skills />
+          <WorkExperience />
           <Education />
         </Layout>
       </main>
