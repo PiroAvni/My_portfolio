@@ -7,7 +7,7 @@ const ExperienceCard = ({ Props }) => {
     
       <article
         className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
-      w-[500px] md:w-[600px] xl:w-[900px] snap-center border-2 border-solid border-dark bg-light p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden"
+      w-[500px] md:w-[600px] xl:w-[900px] snap-center border-2 border-solid border-dark bg-light p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden shadow-2xl "
       >
         
         <motion.img

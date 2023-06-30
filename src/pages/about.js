@@ -90,7 +90,7 @@ const about = () => {
               //   }}
               //   whileInView={{ opacity: 1, x: 0 }}
               //   viewport={{ once: true }}
-              className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8"
+              className="col-span-4 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8"
             >
               <motion.div
                 initial={{

@@ -1,8 +1,11 @@
-import blockContent from './schemas/blockContent'
-import category from './schemas/category'
-import post from './schemas/post'
-import author from './schemas/author'
+import pageInfo from './schemas/pageInfo'
+import skill from './schemas/skill'
+import experience from './schemas/experience'
+import project from './schemas/project'
+import social from './schemas/social'
+
 
 export const schema = {
-  types: [post, author, category, blockContent],
+  types: [pageInfo,skill,experience,project,social],
 }
+
