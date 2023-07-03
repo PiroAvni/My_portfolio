@@ -22,7 +22,7 @@ const about = () => {
         <title> Avni Piro | About Page </title>
         <meta name="description" content="any description" />
       </Head>
-      <main className="flex w-flex flex-col items-center justify-center">
+      <main className="flex w-flex flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
             text="Passion, Creativity and Innovation"
@@ -35,7 +35,7 @@ const about = () => {
               transition={{ duration: 4 }}
               className="col-span-4 flex flex-col items-start justify-start"
             >
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75">
+              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
                 About Me
               </h2>
               <p className=" font-medium">
@@ -90,7 +90,10 @@ const about = () => {
               //   }}
               //   whileInView={{ opacity: 1, x: 0 }}
               //   viewport={{ once: true }}
-              className="col-span-4 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8"
+              className="col-span-4 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8
+              dark:bg-dark dark:border-light
+
+              "
             >
               <motion.div
                 initial={{
@@ -101,7 +104,7 @@ const about = () => {
                 }}
                 viewport={{ once: true }}
                 whileInView={{ opacity: 1 }}
-                className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark "
+                className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark  dark:bg-light"
               />
               <motion.div
                 initial={{ opacity: 0 }}

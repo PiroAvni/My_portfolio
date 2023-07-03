@@ -7,7 +7,7 @@ const ExperienceCard = ({ Props }) => {
     
       <article
         className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
-      w-[500px] md:w-[600px] xl:w-[900px] snap-center border-2 border-solid border-dark bg-light p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden shadow-2xl "
+      w-[500px] md:w-[600px] xl:w-[900px] snap-center border-2 border-solid border-dark bg-light dark:border-light dark:bg-dark p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden shadow-2xl "
       >
         
         <motion.img
@@ -24,7 +24,7 @@ const ExperienceCard = ({ Props }) => {
         />
         <div className="px-0 md:px-10">
           <h4 className="text-4xl font-dark ">CEO OF PIRO</h4>
-          <p className="font-bold text-2xl mt-1">Piro Ltd</p>
+          <p className="font-bold text-2xl mt-1 text-primary dark:text-primaryDark"> @Piro Ltd</p>
           <div className="flex space-x-2 my-2">
             <img className=" h-10 w-10 rounded-full" src="" alt="" />
             {/* Tech Used */}
@@ -32,7 +32,7 @@ const ExperienceCard = ({ Props }) => {
             {/* Tech Used */}
             {/* Tech Used */}
           </div>
-          <p className="uppercase py-5  text-dark/75">
+          <p className="uppercase py-5  text-dark/75 dark:text-light/75">
             Start Date ...... - Ended ......
           </p>
           <ul className="list-disc space-y-4 ml-5 text-xl">

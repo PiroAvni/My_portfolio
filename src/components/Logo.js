@@ -9,7 +9,7 @@ const Logo = () => {
     <div className="flex items-center justify-center mt-2">
       <MotionLink
         href="/"
-        className="w-16 h-16 bg-dark text-light flex items-center justify-center rounded-full text-2xl font-bold p-2"
+        className="w-16 h-16 bg-dark text-light flex items-center justify-center rounded-full text-2xl font-bold p-2 border border-solid border-transparent dark:border-light" 
        
           animate={{
             scale: [1, 1, 1, .5, 1],
