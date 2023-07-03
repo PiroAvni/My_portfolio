@@ -14,8 +14,8 @@ const WorkExperience = () => {
     transition={{duration:1.5}}
     className='h-screen flex relative overflow-hidden flex-col text-lft md:flex-row max-w-full px-10 justify-evenly mx-auto items-center'>
 
-    <div className="my-64">
-    <h2 className="font-bond text-8xl mb-18 w-full text-center ">
+    <div className="my-64 lg:my-32">
+    <h2 className="font-bond text-8xl mb-18 w-full text-center lg:text-6xl md:text-4xl ">
       Experience
     </h2>
     </div>

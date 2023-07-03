@@ -23,19 +23,19 @@ const about = () => {
         <meta name="description" content="any description" />
       </Head>
       <main className="flex w-flex flex-col items-center justify-center dark:text-light">
-        <Layout className="pt-16">
+        <Layout className="pt-16 ">
           <AnimatedText
             text="Passion, Creativity and Innovation"
-            className="mb-16 text-6xl"
+            className="mb-16 text-6xl lg:!text-7xl sm:!text-6xl xs:!text-4xl sm:mb-8"
           />
-          <div className="grid w-full grid-cols-8 gap-16">
+          <div className="grid w-full grid-cols-8 gap-16 sm:gap-8  lg:flex lg:flex-col-reverse">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 4 }}
-              className="col-span-4 flex flex-col items-start justify-start"
+              className="col-span-4 flex flex-col items-start justify-start" 
             >
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75">
+              <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75 ">
                 About Me
               </h2>
               <p className=" font-medium">
@@ -91,7 +91,7 @@ const about = () => {
               //   whileInView={{ opacity: 1, x: 0 }}
               //   viewport={{ once: true }}
               className="col-span-4 relative h-max rounded-2xl border-2 border-solid border-dark bg-light p-8
-              dark:bg-dark dark:border-light
+              dark:bg-dark dark:border-light lg:w-1/2 lg:flex lg:self-center
 
               "
             >
@@ -104,18 +104,18 @@ const about = () => {
                 }}
                 viewport={{ once: true }}
                 whileInView={{ opacity: 1 }}
-                className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark  dark:bg-light"
+                className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark  dark:bg-light "
               />
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: imageLoaded ? 1 : 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out"
+                className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out "
               >
                 <Image
                   src={profilePic}
                   alt="Avni Piro"
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-auto rounded-2xl "
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   onLoad={() => setImageLoaded(true)}

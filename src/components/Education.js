@@ -20,7 +20,7 @@ const Details = ({ type, time, place, info }) => {
           <span className="capitalize font-medium text-dark/75 dark:text-light/75">
             {time} |<span className="text-primary dark:text-primaryDark"> {place}</span> 
           </span>
-          <p className="font-medium w-full">{info}</p>
+          <p className="font-medium w-full ">{info}</p>
         </div>
       </motion.div>
     </li>
