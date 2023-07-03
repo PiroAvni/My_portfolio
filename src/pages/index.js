@@ -38,6 +38,8 @@ export default function Home({initialPosts, total}) {
                 src={profilePic}
                 alt="Avni Piro"
                 className="w-full h-auto"
+                priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               
               />
             </div>

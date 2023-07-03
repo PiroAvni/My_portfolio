@@ -45,6 +45,8 @@ const MovingImage = ({ title, img, link }) => {
         ref={imgRef}
         src={img}
         alt={title}
+        priority
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
         className=" z-10 w-96 h-auto hidden absolute rounded-lg"
       />
     </Link>
