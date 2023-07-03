@@ -7,9 +7,23 @@ import profilePic from "../../public/images/profile/developer-pic-1.png";
 import AnimatedText from "../components/AnimatedText";
 import {LinkArrow} from "../components/icons";
 import HireMe from "@/components/HireMe";
+import {loadData} from "../pages/api/posts";
+import { useState, useEffect } from "react";
+// import { init } from "next/dist/compiled/@vercel/og/satori";
 
 
-export default function Home() {
+
+const  LOAD_MORE_STEP =4
+
+export default function Home({initialPosts, total}) {
+  const [posts, setPosts] = useState(initialPosts);
+
+  useEffect(() => {
+    setPosts(initialPosts);
+  }, [initialPosts]);
+
+  console.log(posts);
+  
   return (
     <>
       <Head>
@@ -58,4 +72,13 @@ export default function Home() {
       </main>
     </>
   );
+}
+export async function getServerSideProps() {
+  const {posts, total}= await loadData(0,LOAD_MORE_STEP)
+  return {
+    props: {
+      initialPosts:posts,
+      total
+    },
+  }
 }
