@@ -17,10 +17,10 @@ const Skill = ({directionLeft}) => {
         whileInView={{opacity:1, x:0}}
         src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"
         alt=""
-        className='rounded-full border border-dark object-cover w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 filter group-hover:grayscale transition duration-300 ease-in-out' 
+        className='rounded-full border border-dark object-cover w-32 h-32 md:w-[6rem] md:h-[6rem] lg:w-28 lg:h-28 sm:w-[5rem] sm:h-[5rem] filter group-hover:grayscale transition duration-300 ease-in-out' 
         />
     </div>
   )
 }
-
+ 
 export default Skill
