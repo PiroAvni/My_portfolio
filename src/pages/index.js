@@ -7,9 +7,10 @@ import profilePic from "../../public/images/profile/developer-pic-1.png";
 import AnimatedText from "../components/AnimatedText";
 import {LinkArrow} from "../components/icons";
 import HireMe from "@/components/HireMe";
-import {loadData} from "../pages/api/posts";
+import {loadData} from "./api/getPosts";
 import { useState, useEffect } from "react";
 import TransitionEffect from "@/components/TransitionEffect";
+import TypewriterText from "@/components/CartoonImage";
 // import { init } from "next/dist/compiled/@vercel/og/satori";
 
 
@@ -83,6 +84,7 @@ export default function Home({initialPosts, total}) {
           </div>
         </Layout>
         <HireMe />
+        <TypewriterText />
       </main>
     </>
   );
