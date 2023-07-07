@@ -17,20 +17,31 @@ import { client } from "../../../sanity/lib/client";
 //   };
 // }
 
-import { groq } from "next-sanity";
+// import { groq } from "next-sanity";
 
 
-export default async function education(req, res) {
-  const query = groq`
-    *[_type == "education"]
-  `;
+// export default async function education(req, res) {
+//   const query = groq`
+//     *[_type == "education"]
+//   `;
 
-  try {
-    const education = await client.fetch(query);
+//   try {
+//     const education = await client.fetch(query);
 
-    res.status(200).json({ education });
-    console.log('education',education)
-  } catch (error) {
-    res.status(500).json({ error: "Failed to fetch skills" });
-  }
+//     res.status(200).json({ education });
+//     console.log('education',education)
+//   } catch (error) {
+//     res.status(500).json({ error: "Failed to fetch skills" });
+//   }
+// }
+
+export async function fetchEducation() {
+  const query = `{
+  'education': *[_type == "education"] | order(dateEnded desc)
+}`;
+  const { education } = await client.fetch(query);
+console.log('post',education)
+  return {
+    education,
+  };
 }

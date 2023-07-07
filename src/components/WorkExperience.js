@@ -2,9 +2,10 @@ import React, { useRef } from 'react'
 import {motion, useScroll} from 'framer-motion'
 import ExperienceCard from './ExperienceCard'
 import LiIcon from './LiIcon';
+import { urlForImage } from '../../sanity/lib/client'
 
 
-const Experience = ({ type, time, place, info }) => {
+const Experience = ({ type, start, place,end, info }) => {
   const ref = useRef(null);
   return (
     <li
@@ -20,7 +21,7 @@ const Experience = ({ type, time, place, info }) => {
         <h3 className=" capitalize font-bold text-2xl sm:text-xl xs-text-lg"> {type} </h3>
         <div>
           <span className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm">
-            {time} |<span className="text-primary dark:text-primaryDark"> {place}</span> 
+            {start} | {end} | <span className="text-primary dark:text-primaryDark"> {place}</span> 
           </span>
           <p className="font-medium w-full md:text-sm ">{info}</p>
         </div>
@@ -31,7 +32,7 @@ const Experience = ({ type, time, place, info }) => {
 
 
 
-const WorkExperience = () => {
+const WorkExperience = ({experience}) => {
   const ref = useRef(null)
   const {scrollYProgress} = useScroll(
          {
@@ -57,11 +58,14 @@ const WorkExperience = () => {
     </motion.div>
 
     <div className=" w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory sm:hidden  ">
-
-        <ExperienceCard/>
-        <ExperienceCard/>
-        <ExperienceCard/>
-        <ExperienceCard/>
+    {experience?.map((job) => (
+       
+       <ExperienceCard 
+       key={job._id}
+       experience={job}
+        />
+     ))}
+        
     </div>
 
       <div ref={ref} className="w-[75%] mx-auto relative hidden sm:flex sm:align-center lg:w-[90%] md:w-full">
@@ -70,21 +74,21 @@ const WorkExperience = () => {
        style={{scaleY: scrollYProgress}}
        className=" absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light " />
 
-        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
-          <Experience
-          type="Software Degrees"
-          time="2023"
-          place="Greenwich University"
-          info="Software development tools"
-          />
-          <Experience
-          type="Software Degrees"
-          time="2023"
-          place="Greenwich University"
-          info="Software development tools"
+        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2 xs:items-start">
           
+        {experience?.map((job) => (
+       
+       <Experience 
+        key={job._id}
+        type={job.jobTitle}
+        start={job.dateStarted}
+        end={job.dateEnded}
+        place={job.company}
+       
+        />
+     ))}
           
-          />
+         
             {/* <LiIcon reference={ref} /> */}
          
         </ul>

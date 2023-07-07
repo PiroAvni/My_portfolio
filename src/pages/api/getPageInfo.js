@@ -42,7 +42,7 @@ export async function fetchPageInfo() {
   'getPageInfo':   *[_type == "pageInfo"][0]{_id, name,desc, backgroundInformation, body, phoneNumber,phoneNumber,profilePic,heroImage}
 }`;
   const { getPageInfo } = await client.fetch(query);
-console.log('post',getPageInfo)
+// console.log('post',getPageInfo)
   return {
     getPageInfo
   };

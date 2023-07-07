@@ -12,22 +12,27 @@ import Skills from "@/components/Skills";
 import TransitionEffect from "@/components/TransitionEffect";
 import { fetchSkills } from '@/pages/api/getSkills';
 import { fetchPageInfo } from "@/pages/api/getPageInfo";
+import { fetchEducation } from "./api/getEducation";
+import { fetchExperience } from "./api/getExperience";
 
 
 
 
-const about = ({skillsData, pageInfoData}) => {
+const about = ({skillsData, pageInfoData,educationData, experience}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [skills, setSkills] = useState([]);
   const [aboutme , setAboutMe]=useState([])
+  const [education,setEducation] = useState([]);
+  const [work,setWork] = useState([]);
 
   useEffect(() => {
     setSkills(skillsData)
     setAboutMe(pageInfoData)
-  }, [skillsData,pageInfoData]);
+    setEducation(educationData)
+    setWork(experience)
+  }, [skillsData,pageInfoData,educationData,experience]);
   
-  
-  console.log(aboutme.body);
+
   
 
   useEffect(() => {
@@ -49,7 +54,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
 
 #webdevelopment #portfolio #Nextjs #FramerMotion #sanityio #webdeveloper" />
 
-<meta name="keywords" content="web development, programming, technology, blog, articles, trends, tips, resources, react, software development" />
+      <meta name="keywords" content="web development, programming, technology, blog, articles, trends, tips, resources, react, software development" />
       </Head>
       <TransitionEffect />
       <main className="flex w-flex flex-col items-center justify-center dark:text-light">
@@ -142,8 +147,8 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
             </motion.div>
           </div>
           <Skills skillsData={skillsData}/>
-          <WorkExperience />
-          <Education />
+          <WorkExperience experience={experience} />
+          <Education educationData={educationData} />
         </Layout>
       </main>
     </>
@@ -156,10 +161,14 @@ export default about;
 export async function getServerSideProps() {
   const {skills}= await fetchSkills()
   const {getPageInfo} = await fetchPageInfo()
+  const {education} = await fetchEducation()
+  const {work} = await fetchExperience()
   return {
     props: {
       skillsData:skills,
       pageInfoData:getPageInfo,
+      educationData:education,
+      experience: work,
     },
   }
 }

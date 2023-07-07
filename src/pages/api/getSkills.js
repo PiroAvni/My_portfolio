@@ -22,7 +22,7 @@ export async function fetchSkills() {
   'skills':   *[_type == "skill"]{_id, image, title}
 }`;
   const { skills } = await client.fetch(query);
-console.log('post',skills)
+// console.log('post',skills)
   return {
     skills
   };

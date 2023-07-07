@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import profilePic from "../../public/images/profile/avni.png";
+import profilePic from "../../public/images/profile/avni (1).png";
 import AnimatedText from "../components/AnimatedText";
 import {LinkArrow} from "../components/icons";
 import HireMe from "@/components/HireMe";
@@ -26,7 +26,7 @@ export default function Home({initialPosts, total}) {
   
   }, [initialPosts]);
 
-  console.log(posts);
+  // console.log(posts);
  
   return (
     <>

@@ -21,22 +21,36 @@ import { client } from "../../../sanity/lib/client";
 //     experiences,
 //   };
 // }
-import { groq } from "next-sanity";
+// import { groq } from "next-sanity";
 
 
-export default async function experience(req, res) {
-  const query = groq`
-    *[_type == "experience"]{
-        ...,
-        technologies[]->
-      }
-  `;
+// export default async function experience(req, res) {
+//   const query = groq`
+//     *[_type == "experience"]{
+//         ...,
+//         technologies[]->
+//       }
+//   `;
 
-  try {
-    const experiences = await client.fetch(query);
+//   try {
+//     const experiences = await client.fetch(query);
 
-    res.status(200).json({ experiences });
-  } catch (error) {
-    res.status(500).json({ error: "Failed to fetch skills" });
-  }
+//     res.status(200).json({ experiences });
+//   } catch (error) {
+//     res.status(500).json({ error: "Failed to fetch skills" });
+//   }
+// }
+
+export async function fetchExperience() {
+  const query = `{
+  'work': *[_type == "jobExperience"] | order(dateStarted desc){
+    ...,
+    technologies[]->
+}
+}`;
+  const { work } = await client.fetch(query);
+console.log('WORK',work)
+  return {
+    work
+  };
 }

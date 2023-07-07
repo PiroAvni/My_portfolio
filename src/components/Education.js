@@ -2,12 +2,12 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import LiIcon from "./LiIcon";
 
-const Details = ({ type, time, place, info }) => {
+const Details = ({ type, time, place, info, endDate}) => {
   const ref = useRef(null);
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between md:w-[80%]"
+      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col  justify-between md:w-[80%]"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -18,7 +18,8 @@ const Details = ({ type, time, place, info }) => {
         <h3 className=" capitalize font-bold text-2xl sm:text-xl xs-text-lg"> {type} </h3>
         <div>
           <span className="capitalize font-medium text-dark/75 dark:text-light/75 xs:text-sm">
-            {time} |<span className="text-primary dark:text-primaryDark"> {place}</span> 
+        
+            {time} | {endDate} | <span className="text-primary dark:text-primaryDark"> {place}</span> 
           </span>
           <p className="font-medium w-full md:text-sm ">{info}</p>
         </div>
@@ -27,7 +28,7 @@ const Details = ({ type, time, place, info }) => {
   );
 };
 
-const Education = () => {
+const Education = ({educationData}) => {
        const ref = useRef(null)
        const {scrollYProgress} = useScroll(
               {
@@ -35,7 +36,7 @@ const Education = () => {
                      offset:['start end' ,'center start'],
               }
        )
-  
+       const options = { month: 'long', year: 'numeric' };
   return (
 <>
        <motion.div
@@ -58,20 +59,18 @@ const Education = () => {
        className=" absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light " />
 
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
-          <Details
-          type="Software Degrees"
-          time="2023"
-          place="Greenwich University"
-          info="Software development tools"
-          />
-          <Details
-          type="Software Degrees"
-          time="2023"
-          place="Greenwich University"
-          info="Software development tools"
-          
-          
-          />
+        {educationData?.map((education) => (
+       
+       <Details key={education._id} 
+       type={education.subjectTitle}
+       time={new Date(education.dateStarted).toLocaleString('en-GB', { year: 'numeric', month: 'long' })}
+       endDate = {new Date(education.dateEnded).toLocaleString('en-GB', { year: 'numeric', month: 'long' })}
+       place={education.school}
+       info={education.points}
+       
+      />
+     ))}
+         
             {/* <LiIcon reference={ref} /> */}
          
         </ul>

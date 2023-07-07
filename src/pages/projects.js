@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import {motion} from 'framer-motion'
@@ -8,11 +8,12 @@ import Image from "next/image";
 import { GithubIcon } from "@/components/icons";
 import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
+import { fetchProjects } from "./api/getProjects";
 
+const  LOAD_MORE_STEP =4
 
 
 const FramerImage =motion(Image);
-
 
 const FeatureProject = ({
   type,
@@ -117,7 +118,18 @@ const Project = ({ type, title, summary, img, technologies, link, github }) => {
   )
 };
 
-const projects = () => {
+const projects = ({initialProject}) => {
+
+  const [project, setProject] = useState(initialProject);
+
+
+useEffect(() => {
+  setProject(initialProject)
+
+}, [initialProject]);
+
+
+
   return (
     <>
       <Head>
@@ -163,6 +175,7 @@ const projects = () => {
                delay: 0.5,
                ease: [0, 0.71, 0.2, 1.01]}}
              className=" col-span-6 sm:col-span-12">
+              
                 <Project
             title="Portfolio"
             img={project1}
@@ -248,3 +261,15 @@ const projects = () => {
 };
 
 export default projects;
+
+export async function getServerSideProps() {
+  const {project,total}= await fetchProjects(0,LOAD_MORE_STEP)
+
+  return {
+    props: {
+      initialProject:project,
+      total, 
+
+    },
+  }
+}
