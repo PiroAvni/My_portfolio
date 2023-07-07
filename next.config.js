@@ -5,6 +5,10 @@ const nextConfig = {
     appDir: true,
     forceSwcTransforms: false,
   },
+  compiler: {
+    styledComponents: true
+  }
+  
 }
 
 module.exports = nextConfig

@@ -39,7 +39,11 @@ const ExperienceCard = ({ Props }) => {
             <li>Work details Work details Work details Work details</li>
             <li>Work details Work details Work details Work details</li>
             <li>Work details Work details Work details Work details</li>
+            <li>Work details Work details Work details Work details Work details Work details Work details Work details </li>
             <li>Work details Work details Work details Work details</li>
+            <li>Work details Work details Work details Work details</li>
+            <li>Work details Work details Work details Work details</li>
+            <li>Work details Work details Work details Work details Work details Work details Work details Work details </li>
           </ul>
         </div>
       </article>

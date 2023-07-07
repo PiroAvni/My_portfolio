@@ -10,9 +10,25 @@ import WorkExperience from "@/components/WorkExperience";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import TransitionEffect from "@/components/TransitionEffect";
+import { fetchSkills } from '@/pages/api/getSkills';
+import { fetchPageInfo } from "@/pages/api/getPageInfo";
 
-const about = () => {
+
+
+
+const about = ({skillsData, pageInfoData}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [skills, setSkills] = useState([]);
+  const [aboutme , setAboutMe]=useState([])
+
+  useEffect(() => {
+    setSkills(skillsData)
+    setAboutMe(pageInfoData)
+  }, [skillsData,pageInfoData]);
+  
+  
+  console.log(aboutme.body);
+  
 
   useEffect(() => {
     setImageLoaded(true);
@@ -52,29 +68,16 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75 ">
                 About Me
               </h2>
-              <p className=" font-medium">
-                Programming has always been a passion and a hobby since I could
-                remember. I would pick up programming books from the library and
-                study them as a kid, playing video games and having my first PC
-                at the age of 12. I was amazed at how it all worked. So back in
-                2006 I graduated from university in BEng where I studied
-                Computer System and Software Engineering, however, I was never
-                able to follow the path into the industry due to personal
-                commitments. In the last few months, I have reignited that
-                passion again and have since studied and completed courses on
-                HTML, CSS and I am currently in the middle of studying frontend
-                technologies JavaScript and react.js. I have gained
-                certification in MTA 98-361 Software Development Fundamentals,
-                AZ-900 Microsoft Azure Fundamentals whilst learning C# and
-                Python. I am very active on Github, I have deployed small
-                projects (Portfolio) in JavaScript and python as well as
-                uploading code snippets in (JavaScript, Python and C#) also
-                showing my progress on new technologies that I am learning. I
-                plan to continue to learn new technologies and to upload more
-                projects to continue my development and practice to further
-                improve my knowledge and skills.
+              {/* {aboutme.body?.map((content) => (
+       <p  id={aboutme._id} className=" font-medium">{content}
+                
+       </p>
+       
+     ))} */}
+              <p className=" font-medium">{aboutme.backgroundInformation}
+                
               </p>
-              <p className=" font-medium">
+              {/* <p className=" font-medium">
                 I believe myself to be hard working, trustworthy, loyal,
                 reliable and forward thinking. I work well off my own initiative
                 or as a team member. I believe I am good at man management; I
@@ -90,7 +93,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
                 external and internal departments, making sure the data is
                 correct and strong internal controls and procedures are in
                 place.
-              </p>
+              </p> */}
 
             </motion.div>
 
@@ -138,7 +141,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
               </motion.div>
             </motion.div>
           </div>
-          <Skills />
+          <Skills skillsData={skillsData}/>
           <WorkExperience />
           <Education />
         </Layout>
@@ -148,3 +151,15 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
 };
 
 export default about;
+
+
+export async function getServerSideProps() {
+  const {skills}= await fetchSkills()
+  const {getPageInfo} = await fetchPageInfo()
+  return {
+    props: {
+      skillsData:skills,
+      pageInfoData:getPageInfo,
+    },
+  }
+}

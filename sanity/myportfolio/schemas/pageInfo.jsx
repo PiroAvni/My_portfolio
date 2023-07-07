@@ -1,3 +1,15 @@
+const textEditorStyles = [
+  { title: 'Paragraph', value: 'normal' },
+  { title: 'Heading 1', value: 'h1' },
+  { title: 'Heading 2', value: 'h2' },
+  { title: 'Heading 3', value: 'h3' },
+  { title: 'Bullet', value: 'bullet' },
+  { title: 'Numbered', value: 'number' },
+  { title: 'Quote', value: 'blockquote' },
+];
+
+
+
 export default {
   name: "pageInfo",
   title: "PageInfo",
@@ -26,6 +38,19 @@ export default {
       title: "BackgroundInformation",
       type: "string",
     },
+    {
+          title: 'Body content', 
+          name: 'body',
+          type: 'array',
+          validation: Rule => Rule.required(),
+          of: [
+              {
+                  type: 'block',
+                  styles: textEditorStyles
+              },
+             
+          ]
+      },
     {
       name: "profilePic",
       title: "ProfilePic",

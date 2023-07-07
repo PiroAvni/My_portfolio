@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import profilePic from "../../public/images/profile/developer-pic-1.png";
+import profilePic from "../../public/images/profile/avni.png";
 import AnimatedText from "../components/AnimatedText";
 import {LinkArrow} from "../components/icons";
 import HireMe from "@/components/HireMe";
@@ -20,12 +20,14 @@ const  LOAD_MORE_STEP =4
 export default function Home({initialPosts, total}) {
   const [posts, setPosts] = useState(initialPosts);
 
+
   useEffect(() => {
-    setPosts(initialPosts);
+    setPosts(initialPosts)
+  
   }, [initialPosts]);
 
   console.log(posts);
-  
+ 
   return (
     <>
       <Head>
@@ -91,10 +93,12 @@ export default function Home({initialPosts, total}) {
 }
 export async function getServerSideProps() {
   const {posts, total}= await loadData(0,LOAD_MORE_STEP)
+
   return {
     props: {
       initialPosts:posts,
-      total
+      total, 
+
     },
   }
 }
