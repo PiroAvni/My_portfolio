@@ -18,21 +18,6 @@ export default function StudioPage() {
 }
 
 
-import React from 'react';
-import RootLayout from './path/to/RootLayout';
 
-const Page = () => {
-  // Your page content goes here
 
-  return <div>Page Content</div>;
-};
 
-const PageWithLayout = () => {
-  return (
-    <RootLayout>
-      <Page />
-    </RootLayout>
-  );
-};
-
-export default PageWithLayout;
