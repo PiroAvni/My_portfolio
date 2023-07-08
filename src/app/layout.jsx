@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import '../globals.css';
+// import '../globals.css';
 
 export const metadata = {
   title: 'Avni Piro Portfolio',
