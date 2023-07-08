@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import profilePic from "../../public/images/profile/avni (1).png";
+import profilePic from "../../public/images/profile/avni.1.png";
 import AnimatedText from "../components/AnimatedText";
 import {LinkArrow} from "../components/icons";
 import HireMe from "@/components/HireMe";

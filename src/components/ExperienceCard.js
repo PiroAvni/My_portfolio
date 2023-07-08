@@ -9,7 +9,7 @@ const ExperienceCard = ({ experience }) => {
   return (
     <>
     
-      <article
+      <article 
         className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0
       w-[900px] md:w-[500px] xl:w-[600px] snap-center border-2 border-solid border-dark bg-light dark:border-light dark:bg-dark p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden shadow-2xl "
       >
@@ -37,11 +37,14 @@ const ExperienceCard = ({ experience }) => {
             {/* Tech Used */}
           </div>
           <p className="uppercase py-5  text-dark/75 dark:text-light/75">
-            Start Date: {experience.dateStarted} - Ended: {experience.dateEnded}
+             <span className="font-semibold "> Start Date: </span>{new Date(experience.dateStarted).toLocaleString('en-GB', { year: 'numeric', month: 'long' })} 
+            
+             -  <span className="font-semibold "> Ended:</span> {new Date(experience.dateEnded).toLocaleString('en-GB', { year: 'numeric', month: 'long' })} 
+              
           </p>
           <ul className="list-disc space-y-4 ml-5 text-xl">
           {experience.points?.map((point) => (
-  <li key={point.id}>{point}</li>
+  <li key={point._id}>{point}</li>
 ))}
           
            

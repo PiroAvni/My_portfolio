@@ -18,20 +18,53 @@ import { groq } from "next-sanity";
 //     res.status(500).json({ error: "Failed to fetch skills" });
 //   }
 // }
-export async function fetchProjects(start, end) {
-  const query = `{
-  'project': *[_type == "project"]{
-        ...,
-        technologies[]->
-      }| order(publishedDate desc) [${start}...${end}] {_id, publishedDate, title, slug, description, image},
-  "total": count(*[_type == "project"])
-}`;
+// export async function fetchProjects(start, end) {
+//   const query = `{
+//   'project': *[_type == "project"]{
+//         ...,
+//         technologies[]->
+//       }| order(publishedDate desc) [${start}...${end}] {_id, summary,publishedDate, title, technologies, linkToBuild, linkToGitHub, featureProject, image},
+//   "total": count(*[_type == "project"])
+// }`;
     
-  const {project, total } = await client.fetch(query);
+//   const {project, total } = await client.fetch(query);
 // console.log('post',project)
-  return {
-    project,
-    total
+//   return {
+//     project,
+//     total
 
-  };
+//   };
+// }
+
+
+export default async function getProject(req, res) {
+  const { start, end } = req.query;
+
+  if (isNaN(Number(start)) || isNaN(Number(end))) {
+    return res.status(400).end();
+  }
+
+  const {project, total } = await loadData(start, end);
+
+  res.status(200).json({
+    project, 
+    total,
+  })
+}
+
+export async function loadData(start, end) {
+  const query = `{
+    'project': *[_type == "project"]{
+          ...,
+          technologies[]->
+        }| order(publishedDate desc) [${start}...${end}] {_id, summary,publishedDate, title, technologies, linkToBuild, linkToGitHub, featureProject, image},
+    "total": count(*[_type == "project"])
+  }`;
+
+  const { project, total} = await client.fetch(query);
+
+  return {
+    project, 
+    total,
+  }
 }

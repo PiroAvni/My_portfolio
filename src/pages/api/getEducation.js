@@ -40,7 +40,7 @@ export async function fetchEducation() {
   'education': *[_type == "education"] | order(dateEnded desc)
 }`;
   const { education } = await client.fetch(query);
-console.log('post',education)
+// console.log('post',education)
   return {
     education,
   };

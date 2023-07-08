@@ -49,7 +49,7 @@ export async function fetchExperience() {
 }
 }`;
   const { work } = await client.fetch(query);
-console.log('WORK',work)
+// console.log('WORK',work)
   return {
     work
   };
