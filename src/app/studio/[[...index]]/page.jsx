@@ -16,3 +16,23 @@ import config from '../../../../sanity/myportfolio/sanity.config'
 export default function StudioPage() {
   return <NextStudio config={config} />
 }
+
+
+import React from 'react';
+import RootLayout from './path/to/RootLayout';
+
+const Page = () => {
+  // Your page content goes here
+
+  return <div>Page Content</div>;
+};
+
+const PageWithLayout = () => {
+  return (
+    <RootLayout>
+      <Page />
+    </RootLayout>
+  );
+};
+
+export default PageWithLayout;
