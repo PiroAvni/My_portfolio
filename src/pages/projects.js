@@ -148,9 +148,9 @@ const Project = ({ project }) => {
 };
 
 const projects = ({ initialProject, total }) => {
-  const [projects, setProject] = useState(initialProject);
-  const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
-  const [loading, setLoading] = useState(false);
+  const [projects, setProject] = React.useState(initialProject);
+  const [loadedAmount, setLoadedAmount] = React.useState(LOAD_MORE_STEP);
+  const [loading, setLoading] = React.useState(false);
 
   // useEffect(() => {
   //   setProject(initialProject)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
@@ -16,11 +16,11 @@ import { fetchEducation } from "./api/getEducation";
 import { fetchExperience } from "./api/getExperience";
 
 const about = ({ skillsData, pageInfoData, educationData, experience }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [skills, setSkills] = useState([]);
-  const [aboutme, setAboutMe] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [work, setWork] = useState([]);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+  const [skills, setSkills] = React.useState([]);
+  const [aboutme, setAboutMe] = React.useState([]);
+  const [education, setEducation] = React.useState([]);
+  const [work, setWork] = React.useState([]);
 
   useEffect(() => {
     setSkills(skillsData);
