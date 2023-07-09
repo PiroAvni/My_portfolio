@@ -18,7 +18,7 @@ import { fetchExperience } from "./api/getExperience";
 const about = ({ skillsData, pageInfoData, educationData, experience }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
   const [skills, setSkills] = React.useState([]);
-  const [aboutme, setAboutMe] = React.useState([]);
+  const [aboutMe, setAboutMe] = React.useState([]);
   const [education, setEducation] = React.useState([]);
   const [work, setWork] = React.useState([]);
 
@@ -79,7 +79,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
        </p>
        
      ))} */}
-              <p className=" font-medium">{aboutme.backgroundInformation}</p>
+              <p className=" font-medium">{aboutMe.backgroundInformation}</p>
               {/* <p className=" font-medium">
                 I believe myself to be hard working, trustworthy, loyal,
                 reliable and forward thinking. I work well off my own initiative
