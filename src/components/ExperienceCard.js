@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { urlForImage } from '../../sanity/lib/client'
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, _id }) => {
 
-  console.log(experience)
+  // console.log(experience)
 
   return (
     <>
@@ -44,7 +44,9 @@ const ExperienceCard = ({ experience }) => {
           </p>
           <ul className="list-disc space-y-4 ml-5 text-xl">
           {experience.points?.map((point) => (
-  <li key={point._id}>{point}</li>
+
+            // console.log("hellllo", point)
+  <li key={point}>{point}</li>
 ))}
           
            

@@ -7,7 +7,7 @@ import Skill from './Skill';
 const Skills = ({skillsData }) => {
 
 
- console.log('avni', skillsData)
+//  console.log('avni', skillsData)
 
   return (
     <>

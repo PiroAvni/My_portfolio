@@ -11,7 +11,7 @@ import {loadData} from "./api/getPosts";
 import { useState, useEffect } from "react";
 import TransitionEffect from "@/components/TransitionEffect";
 import TypewriterText from "@/components/CartoonImage";
-// import { init } from "next/dist/compiled/@vercel/og/satori";
+
 
 
 
