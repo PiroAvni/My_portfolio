@@ -10,30 +10,24 @@ import WorkExperience from "@/components/WorkExperience";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import TransitionEffect from "@/components/TransitionEffect";
-import { fetchSkills } from '@/pages/api/getSkills';
+import { fetchSkills } from "@/pages/api/getSkills";
 import { fetchPageInfo } from "@/pages/api/getPageInfo";
 import { fetchEducation } from "./api/getEducation";
 import { fetchExperience } from "./api/getExperience";
 
-
-
-
-const about = ({skillsData, pageInfoData,educationData, experience}) => {
+const about = ({ skillsData, pageInfoData, educationData, experience }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [skills, setSkills] = useState([]);
-  const [aboutme , setAboutMe]=useState([])
-  const [education,setEducation] = useState([]);
-  const [work,setWork] = useState([]);
+  const [aboutme, setAboutMe] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [work, setWork] = useState([]);
 
   useEffect(() => {
-    setSkills(skillsData)
-    setAboutMe(pageInfoData)
-    setEducation(educationData)
-    setWork(experience)
-  }, [skillsData,pageInfoData,educationData,experience]);
-  
-
-  
+    setSkills(skillsData);
+    setAboutMe(pageInfoData);
+    setEducation(educationData);
+    setWork(experience);
+  }, [skillsData, pageInfoData, educationData, experience]);
 
   useEffect(() => {
     setImageLoaded(true);
@@ -42,7 +36,9 @@ const about = ({skillsData, pageInfoData,educationData, experience}) => {
     <>
       <Head>
         <title> Avni Piro | About Page </title>
-        <meta name="description" content="Welcome to my web development journey! I'm Avni Piro, a dedicated web developer with a passion for crafting exceptional user experiences. With expertise in Next.js, Framer Motion, and sanity.io, I'm constantly pushing the boundaries of what's possible in the digital realm.
+        <meta
+          name="description"
+          content="Welcome to my web development journey! I'm Avni Piro, a dedicated web developer with a passion for crafting exceptional user experiences. With expertise in Next.js, Framer Motion, and sanity.io, I'm constantly pushing the boundaries of what's possible in the digital realm.
 
 Throughout my career, I've honed my skills and stayed up-to-date with the latest technologies to deliver cutting-edge solutions. Now, I'm thrilled to be working on my new portfolio, where I'll showcase my proficiency in Next.js, a powerful framework that enables fast and optimized web development. I'll also leverage Framer Motion to add dynamic animations and interactivity, creating immersive experiences for visitors.
 
@@ -52,9 +48,13 @@ I'm excited to connect with fellow developers, designers, and collaborators who 
 
 Follow my journey as I embark on new challenges, explore emerging technologies, and continuously refine my skills. Stay tuned for updates on my portfolio and web development insights. Let's connect and create something extraordinary.
 
-#webdevelopment #portfolio #Nextjs #FramerMotion #sanityio #webdeveloper" />
+#webdevelopment #portfolio #Nextjs #FramerMotion #sanityio #webdeveloper"
+        />
 
-      <meta name="keywords" content="web development, programming, technology, blog, articles, trends, tips, resources, react, software development" />
+        <meta
+          name="keywords"
+          content="web development, programming, technology, blog, articles, trends, tips, resources, react, software development"
+        />
       </Head>
       <TransitionEffect />
       <main className="flex w-flex flex-col items-center justify-center dark:text-light">
@@ -68,7 +68,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 4 }}
-              className="col-span-4 flex flex-col items-start justify-start lg:order-2 lg:col-span-8 " 
+              className="col-span-4 flex flex-col items-start justify-start lg:order-2 lg:col-span-8 "
             >
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75 ">
                 About Me
@@ -79,9 +79,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
        </p>
        
      ))} */}
-              <p className=" font-medium">{aboutme.backgroundInformation}
-                
-              </p>
+              <p className=" font-medium">{aboutme.backgroundInformation}</p>
               {/* <p className=" font-medium">
                 I believe myself to be hard working, trustworthy, loyal,
                 reliable and forward thinking. I work well off my own initiative
@@ -99,7 +97,6 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
                 correct and strong internal controls and procedures are in
                 place.
               </p> */}
-
             </motion.div>
 
             <motion.div
@@ -141,14 +138,13 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   onLoad={() => setImageLoaded(true)}
-
                 />
               </motion.div>
             </motion.div>
           </div>
-          <Skills skillsData={skillsData}/>
-          <WorkExperience experience={experience} />
-          <Education educationData={educationData} />
+          <Skills skillsData={skills} />
+          <WorkExperience experience={work} />
+          <Education educationData={education} />
         </Layout>
       </main>
     </>
@@ -157,18 +153,17 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
 
 export default about;
 
-
 export async function getServerSideProps() {
-  const {skills}= await fetchSkills()
-  const {getPageInfo} = await fetchPageInfo()
-  const {education} = await fetchEducation()
-  const {work} = await fetchExperience()
+  const { skills } = await fetchSkills();
+  const { getPageInfo } = await fetchPageInfo();
+  const { education } = await fetchEducation();
+  const { work } = await fetchExperience();
   return {
     props: {
-      skillsData:skills,
-      pageInfoData:getPageInfo,
-      educationData:education,
+      skillsData: skills,
+      pageInfoData: getPageInfo,
+      educationData: education,
       experience: work,
     },
-  }
+  };
 }
