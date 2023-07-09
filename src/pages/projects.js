@@ -147,7 +147,7 @@ const Project = ({ project }) => {
   );
 };
 
-const projects = ({ initialProject, total }) => {
+const Projects = ({ initialProject, total }) => {
   const [projects, setProject] = React.useState(initialProject);
   const [loadedAmount, setLoadedAmount] = React.useState(LOAD_MORE_STEP);
   const [loading, setLoading] = React.useState(false);
@@ -270,7 +270,7 @@ const projects = ({ initialProject, total }) => {
   );
 };
 
-export default projects;
+export default Projects;
 
 export async function getServerSideProps() {
   const { project, total } = await loadData(0, LOAD_MORE_STEP);

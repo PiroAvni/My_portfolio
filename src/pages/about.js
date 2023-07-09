@@ -14,7 +14,7 @@ import { fetchPageInfo } from "@/pages/api/getPageInfo";
 import { fetchEducation } from "./api/getEducation";
 import { fetchExperience } from "./api/getExperience";
 
-const about = ({ skillsData, pageInfoData, educationData, experience }) => {
+const About = ({ skillsData, pageInfoData, educationData, experience }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
   const [skills, setSkills] = React.useState([]);
   const [aboutMe, setAboutMe] = React.useState([]);
@@ -150,7 +150,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
   );
 };
 
-export default about;
+export default About;
 
 export async function getServerSideProps() {
   const { skills } = await fetchSkills();
