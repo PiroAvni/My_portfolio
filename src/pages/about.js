@@ -2,7 +2,6 @@ import React,{ useEffect, useState } from "react";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
-import React from "react";
 import Image from "next/image";
 import profilePic from "../../public/images/profile/developer-pic-2.jpg";
 import { motion } from "framer-motion";
