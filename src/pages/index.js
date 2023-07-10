@@ -15,16 +15,13 @@ import TypewriterText from "@/components/CartoonImage";
 
 
 
-const  LOAD_MORE_STEP =4
-
-export default function Home({initialPosts, total}) {
-  const [posts, setPosts] = useState(initialPosts);
 
 
-  useEffect(() => {
-    setPosts(initialPosts)
-  
-  }, [initialPosts]);
+export default function Home() {
+
+
+
+
 
   // console.log(posts);
  
@@ -90,15 +87,4 @@ export default function Home({initialPosts, total}) {
       </main>
     </>
   );
-}
-export async function getServerSideProps() {
-  const {posts, total}= await loadData(0,LOAD_MORE_STEP)
-
-  return {
-    props: {
-      initialPosts:posts,
-      total, 
-
-    },
-  }
 }
