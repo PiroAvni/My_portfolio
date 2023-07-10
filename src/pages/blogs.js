@@ -1,4 +1,4 @@
-import React, { useRef} from "react";
+import React, { useRef, useState} from "react";
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
@@ -24,7 +24,7 @@ const MovingImage = ({ title, img, slug}) => {
     x.set(event.pageX);
     y.set(-10);
   }
-console.log('slug', slug)
+// console.log('slug', slug)
   function handleMouseLeave(event) {
     imgRef.current.style.display = "none";
     x.set(0);
@@ -113,9 +113,9 @@ const FeatureArticle = ({ article}) => {
   );
 };
 const blogs = ({ initialPost,total }) => {
-  const [articles, setArticles] = React.useState(initialPost);
-  const [loadedAmount, setLoadedAmount] = React.useState(LOAD_MORE_STEP);
-  const [loading, setLoading] = React.useState(false);
+  const [articles, setArticles] = useState(initialPost);
+  const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
+  const [loading, setLoading] = useState(false);
 
   const showLoadButton = total > loadedAmount;
 
