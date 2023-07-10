@@ -10,7 +10,7 @@ const Content = ({
 }) => {
   // console.log("body",body)
   return (
-    <div className="xl:w-full md:w-full flex items-center justify-center">
+    <div className="xl:w-full md:w-full flex items-center justify-center dark:text-light">
         <BlockContent
           blocks={body}
           imageOptions={{w: 1000, h: 750, fit: 'max'}}
