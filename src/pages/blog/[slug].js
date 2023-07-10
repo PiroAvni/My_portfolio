@@ -11,7 +11,7 @@ import AnimatedText from '@/components/AnimatedText';
 
 const Post = ({ post }) => {
 
-    console.log("blog", post)
+    // console.log("blog", post)
     const date = post && post.publishedDate ? format(new Date(post.publishedDate), 'dd MMM yyy') : '';
     return (
         <>
