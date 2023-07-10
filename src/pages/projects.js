@@ -6,7 +6,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { GithubIcon } from "@/components/icons";
-import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
 import TransitionEffect from "@/components/TransitionEffect";
 import { fetchProjects, loadData } from "./api/getProjects";
 import { urlForImage } from "../../sanity/lib/client";
