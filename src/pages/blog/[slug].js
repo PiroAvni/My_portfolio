@@ -1,9 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import Head from 'next/head';
-
 import { client } from "../../../sanity/lib/client";
-
 import Article from '@/components/Article';
 import Layout from '@/components/Layout';
 import Content from '@/components/Content';
@@ -14,7 +12,7 @@ import AnimatedText from '@/components/AnimatedText';
 const Post = ({ post }) => {
 
     console.log("blog", post)
-    const date = format(new Date(post.publishedDate), 'dd MMM yyy');
+    const date = post && post.publishedDate ? format(new Date(post.publishedDate), 'dd MMM yyy') : '';
     return (
         <>
         <Head>
@@ -28,17 +26,19 @@ const Post = ({ post }) => {
           content="web development, programming, technology, blog, articles, trends, tips, resources, react, software development"
         />
       </Head>
-        <Layout className="pt-16 ">
-        <Article backUrl="/blogs" className='text-dark mb-6'>
+        <Layout className="pt-32 lg:pt-16 ">
+        <Article backUrl="/blogs" className='text-dark mb-10'>
             
       <AnimatedText
             text={post.title}
             className="mb-16 lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
-            <p className='text-dark'>{date} </p> 
+          <div className="">
+            <p className='text-dark'> Published Date: {date} </p> 
             <p className='text-primary dark:text-primaryDark mb-4'>{post.readTime}</p>
-            
+        
             <Content body={post.body} />
+            </div>
         </Article>
         </Layout>
         </>
@@ -78,5 +78,3 @@ export async function getStaticProps({ params: { slug }}) {
         }
     }
 }
-
-  

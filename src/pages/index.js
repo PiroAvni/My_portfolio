@@ -21,10 +21,7 @@ export default function Home() {
 
 
 
-
-
-  // console.log(posts);
- 
+  
   return (
     <>
       <Head>

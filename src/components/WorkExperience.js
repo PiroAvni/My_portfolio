@@ -10,7 +10,7 @@ const Experience = ({ type, start, place,end, info , id}) => {
   return (
     <li key={id}
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between md:w-[80%]"
+      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between md:w-[80%] sm:items-start"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -74,15 +74,15 @@ const WorkExperience = ({experience}) => {
        style={{scaleY: scrollYProgress}}
        className=" absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light " />
 
-        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2 xs:items-start">
-          
+        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-8 ">
+       
         {experience?.map((job) => (
        
        <Experience 
         key={job._id}
         type={job.jobTitle}
-        start={job.dateStarted}
-        end={job.dateEnded}
+        start={new Date(job.dateStarted).toLocaleString('en-GB', { year: 'numeric', month: 'long' })}
+        end={new Date(job.dateEnded).toLocaleString('en-GB', { year: 'numeric', month: 'long' })}
         place={job.company}
        
         />

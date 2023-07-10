@@ -58,7 +58,7 @@ const Education = ({educationData}) => {
        style={{scaleY: scrollYProgress}}
        className=" absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light " />
 
-        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
+        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-8">
         {educationData?.map((education) => (
        
        <Details key={education._id} 

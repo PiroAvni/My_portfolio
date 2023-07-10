@@ -16,7 +16,7 @@ const Skill = ({directionLeft,skill}) => {
        whileInView={{opacity:1}}
         src={urlForImage(skill?.image).url()}
         alt={skill.title}
-        className='rounded-full border border-dark object-cover w-32 h-32 md:w-[6rem] md:h-[6rem] lg:w-28 lg:h-28 sm:w-[5rem] sm:h-[5rem] filter group-hover:grayscale transition duration-300 ease-in-out' 
+        className='rounded-full border border-dark object-cover w-32 h-32 md:w-[6rem] md:h-[6rem] lg:w-28 lg:h-28 sm:w-[5rem] sm:h-[auto] filter group-hover:grayscale transition duration-300 ease-in-out' 
         />
     </div>
   )

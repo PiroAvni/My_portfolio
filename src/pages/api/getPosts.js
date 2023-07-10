@@ -26,7 +26,7 @@ export async function loadData(start, end) {
   "total": count(*[_type == "post"])
 }`;
   const { posts, total } = await client.fetch(query);
-// console.log('post',posts)
+ console.log('post',posts)
   return {
     posts,
     total,

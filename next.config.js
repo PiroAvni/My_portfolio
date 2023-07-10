@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: { domains: ['cdn.sanity.io'] },
   experimental: {
     appDir: true,
     forceSwcTransforms: false,
@@ -8,7 +9,8 @@ const nextConfig = {
   compiler: {
     styledComponents: true
   }
-  
+
 }
+
 
 module.exports = nextConfig

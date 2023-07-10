@@ -34,7 +34,7 @@ console.log('slug', slug)
   return (
     <Link
     href={`/blog/${encodeURIComponent(slug.current)}`}
-      target="_blank"
+      // target="_blank"
       onMouseMove={handleMouse}
       onMouseLeave={handleMouseLeave}
     >
@@ -48,6 +48,8 @@ console.log('slug', slug)
         ref={imgRef}
         src={urlForImage(img).url()}
         alt={title}
+        // width="100"
+        // height="100"
         // priority="true" 
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
         className=" z-10 w-96 h-auto hidden absolute rounded-lg  md:!hidden"
@@ -74,11 +76,11 @@ const Blog = ({ article, index }) => {
   );
 };
 
-const FeatureArticle = ({ index, article}) => {
+const FeatureArticle = ({ article}) => {
 
   console.log("Article", article);
   return (
-    <li key ={index} className=" relative col-span-1 w-full p-4 bg-light border border-solid border-dark dark:bg-dark dark:border-light  rounded-2xl">
+    <li key ={article.slug} className=" relative col-span-1 w-full p-4 bg-light border border-solid border-dark dark:bg-dark dark:border-light  rounded-2xl">
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl" />
       <Link
         href={`/blog/${encodeURIComponent(article.slug.current)}`}
@@ -88,6 +90,8 @@ const FeatureArticle = ({ index, article}) => {
         <motion.img
           src={urlForImage(article.image).url()}
           alt={article.title}
+          // width="100"
+          // height="100"
           className="w-full h-auto "
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
@@ -157,8 +161,8 @@ const blogs = ({ initialPost,total }) => {
           />
 
           <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
-            {articles.map((article, index) => {
-              if (index <= 1) {
+            {articles?.map((article, index) => {
+              if (index < 2) {
                 return <FeatureArticle key={index} article={article} />;
               }
               return null; // Don't render anything for the first two articles

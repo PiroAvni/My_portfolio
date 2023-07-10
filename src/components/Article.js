@@ -10,7 +10,7 @@ const Article = ({
 }) => {
   return (
     <article className="relative">
-      <Link href={backUrl} className="flex flex-row  text-dark dark:text-light">
+      <Link href={backUrl} className="flex flex-row  text-dark dark:text-light mb-10">
        
           <BsFillArrowLeftCircleFill size="1.7rem" className='' /> 
           <p className="font-semibold ml-3 text-lg text-dark dark:text-light">Back to Blogs</p>
