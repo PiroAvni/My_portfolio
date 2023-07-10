@@ -109,9 +109,9 @@ const FeatureArticle = ({ index, article}) => {
   );
 };
 const blogs = ({ initialPost,total }) => {
-  const [articles, setArticles] = useState(initialPost);
-  const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE_STEP);
-  const [loading, setLoading] = useState(false);
+  const [articles, setArticles] = React.useState(initialPost);
+  const [loadedAmount, setLoadedAmount] = React.useState(LOAD_MORE_STEP);
+  const [loading, setLoading] = React.useState(false);
 
   const showLoadButton = total > loadedAmount;
 
