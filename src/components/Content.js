@@ -8,7 +8,7 @@ import  config  from "../../sanity.config";
 const Content = ({
     body
 }) => {
-  console.log("body",body)
+  // console.log("body",body)
   return (
     <div className="xl:w-full md:w-full flex items-center justify-center">
         <BlockContent
