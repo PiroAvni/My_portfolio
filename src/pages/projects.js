@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { GithubIcon } from "@/components/icons";
 import TransitionEffect from "@/components/TransitionEffect";
-import { fetchProjects, loadData } from "./api/getProjects";
+import {  loadData } from "./api/getProjects";
 import { urlForImage } from "../../sanity/lib/client";
 import  Button  from "@/components/Button";
 

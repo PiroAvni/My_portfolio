@@ -111,7 +111,7 @@ const FeatureArticle = ({ article}) => {
     </li>
   );
 };
-const blogs = ({ initialPost,total }) => {
+const Blogs = ({ initialPost,total }) => {
   const [articles, setArticles] = React.useState(initialPost);
   const [loadedAmount, setLoadedAmount] = React.useState(LOAD_MORE_STEP);
   const [loading, setLoading] = React.useState(false);
@@ -200,7 +200,7 @@ const blogs = ({ initialPost,total }) => {
   );
 };
 
-export default blogs;
+export default Blogs;
 
 export async function getServerSideProps() {
   const { posts, total } = await loadData(0, LOAD_MORE_STEP);
