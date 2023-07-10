@@ -260,7 +260,7 @@ const Projects = ({ initialProject, total }) => {
               }}
             >
               <Button disabled={loading} onClick={getMoreProjects}>
-                Load more posts...
+                Load more projects...
               </Button>
             </div>
           )}
