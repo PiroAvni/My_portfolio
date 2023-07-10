@@ -10,9 +10,8 @@ import Button from "@/components/Button";
 import { loadData } from "./api/getPosts";
 import { urlForImage } from "../../sanity/lib/client";
 
-// const FramerImage = motion(Image);
-
 const LOAD_MORE_STEP = 4;
+// const FramerImage = motion(Image);
 
 const MovingImage = ({ title, img, slug}) => {
   const x = useMotionValue(0);
