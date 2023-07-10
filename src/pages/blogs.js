@@ -77,7 +77,7 @@ const Blog = ({ article, index }) => {
 
 const FeatureArticle = ({ article}) => {
 
-  console.log("Article", article);
+  // console.log("Article", article);
   return (
     <li key ={article.slug} className=" relative col-span-1 w-full p-4 bg-light border border-solid border-dark dark:bg-dark dark:border-light  rounded-2xl">
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl" />
