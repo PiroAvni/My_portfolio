@@ -7,6 +7,9 @@ import { urlForImage } from '../../sanity/lib/client'
 
 const Experience = ({ type, start, place,end, info , id}) => {
   const ref = useRef(null);
+
+
+  
   return (
     <li key={id}
       ref={ref}

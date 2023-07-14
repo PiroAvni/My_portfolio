@@ -7,7 +7,7 @@ const Details = ({ type, time, place, info, endDate}) => {
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col  justify-between md:w-[80%]"
+      className="my-8 first:mt-0 last:mb-0 w-[90%] mx-auto flex flex-col  justify-between md:w-[80%]"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -52,20 +52,20 @@ const Education = ({educationData}) => {
        </div>
        </motion.div>
 
-      <div ref={ref} className="w-[75%] mx-auto relative lg:w-[90%] md:w-full">
+      <div ref={ref} className="w-[80%] mx-auto relative lg:w-[90%] md:w-full">
 
        <motion.div 
        style={{scaleY: scrollYProgress}}
        className=" absolute left-9 top-0 w-[4px] h-full bg-dark origin-top dark:bg-light " />
 
-        <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-8">
+        <ul className="w-full flex flex-col items-start justify-between ml-6 xs:ml-8">
         {educationData?.map((education) => (
        
        <Details key={education._id} 
        type={education.subjectTitle}
        time={new Date(education.dateStarted).toLocaleString('en-GB', { year: 'numeric', month: 'long' })}
        endDate = {new Date(education.dateEnded).toLocaleString('en-GB', { year: 'numeric', month: 'long' })}
-       place={education.school}
+       place= {`@${education.school}`}
        info={education.points}
        
       />
