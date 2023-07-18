@@ -21,7 +21,7 @@ const About = ({ skillsData, pageInfoData, educationData, experience }) => {
   const [education, setEducation] = React.useState([]);
   const [work, setWork] = React.useState([]);
 
- console.log("About", aboutMe)
+
 
   const {body}= aboutMe;
  
