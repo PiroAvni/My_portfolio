@@ -10,7 +10,7 @@ const Content = ({
 }) => {
   console.log("body",body)
   return (
-    <div className=" prose xl:w-full md:w-full flex flex-col items-center justify-center dark:text-light">
+    <div className=" prose xl:w-full md:w-full  dark:text-light">
         <PortableText
           value={body}
           imageOptions={{w: 1000, h: 750, fit: 'max'}}

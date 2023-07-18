@@ -20,7 +20,15 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 8s linear infinite',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100ch', // add required value here
+          }
+        }
       }
+
     },
     screens: {
       "2xl": { max: "1535px" },
