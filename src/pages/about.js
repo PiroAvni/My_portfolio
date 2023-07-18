@@ -3,7 +3,7 @@ import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
 import Image from "next/image";
-import profilePic from "../../public/images/profile/developer-pic-2.jpg";
+import profilePic from "../../public/images/profile/4A0A0142.jpg";
 import { motion } from "framer-motion";
 import WorkExperience from "@/components/WorkExperience";
 import Education from "@/components/Education";
@@ -20,6 +20,12 @@ const About = ({ skillsData, pageInfoData, educationData, experience }) => {
   const [aboutMe, setAboutMe] = React.useState([]);
   const [education, setEducation] = React.useState([]);
   const [work, setWork] = React.useState([]);
+
+ console.log("About", aboutMe)
+
+  const {body}= aboutMe;
+ 
+
 
   useEffect(() => {
     setSkills(skillsData);
@@ -72,30 +78,17 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
               <h2 className="mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75 ">
                 About Me
               </h2>
-              {/* {aboutme.body?.map((content) => (
-       <p  id={aboutme._id} className=" font-medium">{content}
-                
-       </p>
-       
-     ))} */}
-              <p className=" font-medium">{aboutMe.backgroundInformation}</p>
-              {/* <p className=" font-medium">
-                I believe myself to be hard working, trustworthy, loyal,
-                reliable and forward thinking. I work well off my own initiative
-                or as a team member. I believe I am good at man management; I
-                work well under pressure and can always perform to time scale
-                and target. The 20 years’ experience gained from high level
-                education plus working for 14 years for a renowned company, I
-                have developed valuable skills in problem solving i.e assisting
-                in implementing new systems and procedures and while identifying
-                current and future problems inline to UK legislations. Data
-                Analytics, i.e help and provide raw data, make business
-                decisions to help the business in relation to overhead costs and
-                budget reports etc. Attention to Detail i.e. working with
-                external and internal departments, making sure the data is
-                correct and strong internal controls and procedures are in
-                place.
-              </p> */}
+              {body &&
+        body.map((block, blockIndex) => (
+          <div key={blockIndex}>
+            {block.children &&
+              block.children.map((span, spanIndex) => (
+                <p key={spanIndex}>{span.text}</p>
+              ))}
+          </div>
+        ))}
+     
+           
             </motion.div>
 
             <motion.div
@@ -131,7 +124,7 @@ Follow my journey as I embark on new challenges, explore emerging technologies, 
                 className="w-full h-auto rounded-2xl hover:scale-110 transition duration-300 ease-in-out lg:hover:scale-105 "
               >
                 <Image
-                  src={profilePic}
+                  src= {profilePic}
                   alt="Avni Piro"
                   className="w-full h-auto rounded-2xl "
                   priority
