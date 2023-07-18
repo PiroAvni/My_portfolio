@@ -42,6 +42,6 @@ module.exports = {
       // => @media (max-width: 479px) { ... }
   },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
 
