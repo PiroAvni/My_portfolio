@@ -3,8 +3,7 @@ import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
+
 import { GithubIcon } from "@/components/icons";
 import TransitionEffect from "@/components/TransitionEffect";
 import {  loadData } from "./api/getProjects";
@@ -21,7 +20,7 @@ const FeatureProject = ({ project }) => {
   return (
     <article className="w-full flex items-center justify-between rounded-3xl border border-solid border-dark bg-light dark:border-light dark:bg-dark shadow-2xl p-12 relative rounded-br-2xl lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4">
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark dark:bg-light rounded-br-3xl  xs:-right-2 sm:h-[102%] xs:w-[100%] cs:rounded-[1.5rem]" />
-      <Link
+      <a
         href="/"
         target="_blank"
         className="w-1/2 cursor-pointer overflow-hidden rounded-lg lg:w-full"
@@ -35,13 +34,13 @@ const FeatureProject = ({ project }) => {
           // priority="true"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
         />
-      </Link>
+      </a>
       <div className="w-1/2 flex flex-col items-start justify-between pl-6 lg:w-full lg:pl-0 lg:pt-6">
         <span className="text-primary dark:text-primaryDark font-medium text-xl xs:text-base">
           {project.featureProject
 }
         </span>
-        <Link
+        <a
           href="/"
           target="_blank"
           className="hover:underline underline-offset-2  dark:hover:color-light"
@@ -49,7 +48,7 @@ const FeatureProject = ({ project }) => {
           <h2 className="my-2 w-full text-left text-4xl font-bold text-dark dark:text-light sm:text-sm">
             {project.title}
           </h2>
-        </Link>
+        </a>
         <div className="flex items-center space-x-2 justify-center">
           {project.technologies.map((tech)=>(
       <img key={tech._id} src={urlForImage(tech.image).url()}
@@ -62,16 +61,18 @@ const FeatureProject = ({ project }) => {
           {project.summary}
         </p>
         <div className="mt-2 flex items-center ">
-          <Link href={"project.LinkToBuild"} target="_blank" className="w-10">
-            <GithubIcon />
-          </Link>
-          <Link
-            href={"project.LinkToBGitHub"}
-            target="_blank"
+
+        <a href={project.linkToBuild} rel="noreferrer" target={"_blank"} className="w-10">
+        <GithubIcon />
+      </a>
+
+          <a href={project.linkToGitHub} 
+            rel="noreferrer"
+            target={"_blank"}
             className="ml-4 rounded-lg bg-dark text-light dark:bg-light dark:text-dark p-2 px-6 text-lg font-semibold sm:px-4 sm:text-base"
           >
             Visit Project
-          </Link>
+          </a>
         </div>
       </div>
     </article>
@@ -84,7 +85,7 @@ const Project = ({ project }) => {
   return (
     <article className="w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light dark:border-light dark:bg-dark shadow-2xl p-6 relative rounded-br-2xl xs:p-4">
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-light rounded-br-3xl md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]" />
-      <Link
+      <a
         href="/"
         target="_blank"
         className="w-full cursor-pointer overflow-hidden rounded-lg"
@@ -98,12 +99,12 @@ const Project = ({ project }) => {
           // priority="true"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
         />
-      </Link>
+      </a>
       <div className="w-full flex flex-col items-start justify-between mt-4">
         <span className="text-primary dark:text-primaryDark font-medium text-xl lg:text-lg md:text-base ">
           {project.FeatureProject}
         </span>
-        <Link
+        <a
           href="/"
           target="_blank"
           className="hover:underline underline-offset-2"
@@ -111,7 +112,7 @@ const Project = ({ project }) => {
           <h2 className="my-2 w-full text-left text-3xl font-bold lg:text-2xl">
             {project.title}
           </h2>
-        </Link>
+        </a>
         <div className="flex items-center space-x-2 justify-center">
         {project.technologies.map((tech)=>(
       <img key={tech._id} src={urlForImage(tech.image).url()}
@@ -126,20 +127,22 @@ const Project = ({ project }) => {
         </p>
 
         <div className="w-full mt-2 flex items-center justify-between">
-          <Link
-            href={"project.LinkToBGitHub"}
+          <a
+            href={project.linkToGitHub}
+            rel="noreferrer"
             target="_blank"
             className="w-10  md:w-8"
           >
             <GithubIcon />
-          </Link>
-          <Link
-            href={"project.LinkToBuild"}
+          </a>
+          <a
+            href={project.linkToBuild}
+            rel="noreferrer"
             target="_blank"
             className="rounded-lg bg-dark text-light p-2 px-6 text-lg font-semibold md:text-base"
           >
             Visit
-          </Link>
+          </a>
         </div>
       </div>
     </article>
